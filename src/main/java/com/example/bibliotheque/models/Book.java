@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe représentant un livre dans le catalogue.
@@ -88,4 +90,20 @@ public class Book {
      */
     @Column(name = "added_date")
     private LocalDateTime addedDate;
+    /**
+     * Liste des catégories de ce livre.
+     */
+    @ManyToMany
+    @JoinTable(
+            name = "book_category",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories = new ArrayList<>();
+
+    /**
+     * Liste des emprunts de ce livre.
+     */
+    @OneToMany(mappedBy = "book")
+    private List<Borrow> borrows = new ArrayList<>();
 }

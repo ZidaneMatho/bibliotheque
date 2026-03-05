@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.parameters.P;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Classe représentant une catégorie de livres.
  *
@@ -22,10 +25,16 @@ import org.springframework.security.core.parameters.P;
 @Table(name = "categories")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private  String name;
     private  String description;
+    /**
+     * Liste des livres appartenant à cette catégorie.
+     */
+    @ManyToMany(mappedBy = "categories")
+    private List<Book> books = new ArrayList<>();
 }

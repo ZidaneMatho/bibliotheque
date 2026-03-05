@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import java.time.LocalDateTime;
 
 /**
@@ -28,9 +30,12 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
+
 
     /**
      * Identifiant unique de l'utilisateur.
@@ -39,7 +44,7 @@ public class User {
      * automatiquement par la base de données lors de l'insertion.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     /**

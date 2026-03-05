@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe représentant un membre de la bibliothèque.
@@ -40,5 +42,10 @@ public class Member extends User {
     private  String address;
     @Column(name = "birth_date")
     private LocalDate birthdate;
+    /**
+     * Liste des emprunts effectués par ce membre.
+     */
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Borrow> borrows = new ArrayList<>();
 
 }
