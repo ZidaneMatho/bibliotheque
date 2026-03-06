@@ -44,7 +44,7 @@ public class User {
      * automatiquement par la base de données lors de l'insertion.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     /**
@@ -85,7 +85,7 @@ public class User {
     /**
      * Numéro de téléphone de l'utilisateur.
      *
-     * Ce champ est optionnel et peut être null.
+     * Ce champ est optionnel et peut-être null.
      */
     @Column(name = "phone_number")
     private String phoneNumber;

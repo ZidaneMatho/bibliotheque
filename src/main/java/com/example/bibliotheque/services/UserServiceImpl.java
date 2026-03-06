@@ -16,7 +16,7 @@ import java.util.Optional;
  * - Recherche et consultation des utilisateurs
  * - Mise à jour des informations
  * - Suppression de comptes
- * - Vérification d'unicité des emails
+ * - Vérification d'unicité des emails.
  *
  * Elle fait le lien entre les contrôleurs (API) et le repository (base de données).
  *

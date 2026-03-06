@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -19,6 +20,7 @@ import lombok.experimental.SuperBuilder;
  * @version 1.0
  * @since Mars 2026
  */
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "administrators")
